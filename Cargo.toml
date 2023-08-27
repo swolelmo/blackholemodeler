@@ -6,4 +6,5 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-russimp = { version = "2.0.6", features = ["prebuilt"] }
+assimp-sys = "0.3.1"
+black_hole = { git = "https://github.com/swolelmo/blackhole.git"}
