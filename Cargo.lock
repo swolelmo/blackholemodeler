@@ -107,7 +107,7 @@ checksum = "bef38d45163c2f1dde094a7dfd33ccf595c92905c8f8f4fdc18d06fb1037718a"
 [[package]]
 name = "black_hole"
 version = "0.1.0"
-source = "git+https://github.com/swolelmo/blackhole.git#cf0906c913aec36960c61b0603dc64bf11a3365e"
+source = "git+https://github.com/swolelmo/blackhole.git#b406c2b15d34e577ab313535429e710f92aea71e"
 dependencies = [
  "bincode",
  "bytemuck",
