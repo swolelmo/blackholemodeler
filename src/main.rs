@@ -20,7 +20,7 @@ fn main() {
             Err(_) => return
         };
 
-        let scene = aiImportFile(file_name.as_ptr(), AiPostProcessSteps::empty());
+        let scene = aiImportFile(file_name.as_ptr(), AIPROCESS_TRIANGULATE);
         
         println!("Processing file: {0}", &args[1]);
 
@@ -74,6 +74,14 @@ unsafe fn process_mesh(mesh: *const AiMesh) -> Mesh {
     }
 
     let mut indices = Vec::new();
+    for i in 0..(*mesh).num_faces as isize {
+        let face = &*(*mesh).faces.offset(i);
+        if face.num_indices != 3 { println!("Mesh has faces without 3 indices"); }
+        for j in 0..face.num_indices as isize {
+            indices.push(*face.indices.offset(j) as u32);
+        }
+    }
+
     let mut textures = Vec::new();
     Mesh::new(vertices, indices, textures)
 }
